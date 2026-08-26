@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grinder: How Belarus Prosecutes Political Dissent</title>
+<meta name="description" content="An analysis of 3,829 political prisoner prosecutions reveals a repressive apparatus that is not ratcheting but grinding: collapsing distinct charging regimes into a single undifferentiated machine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,50..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+:root {
+  --bg: #EDEEEB; --bg-2: #D8DAD4; --ink: #121518; --ink-mute: #4A4E48;
+  --ink-faint: #808480; --rule: #B0B4AA; --paper: #F5F6F2;
+  --protest: #7C1D1D; --protest-tint: #F0D0CC;
+  --speech: #5A4A1A; --speech-tint: #EAE0C8;
+  --extremist: #1A4A3A; --extremist-tint: #C8E0D8;
+  --shadow: 0 2px 20px rgba(18,21,24,0.06);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Inter', -apple-system, sans-serif; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: var(--protest); color: var(--paper); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+.narrow { max-width: 680px; margin: 0 auto; padding: 0 32px; }
+.section { padding: 88px 0; }
+.masthead { padding: 40px 0 20px; border-bottom: 1px solid var(--rule); }
+.masthead .wrap { display: flex; justify-content: space-between; align-items: baseline; }
+.masthead .brand { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 12; font-weight: 500; font-size: 15px; }
+.masthead .brand span { color: var(--protest); }
+.masthead .meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); }
+.title-block { padding: 72px 0 24px; }
+.eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--protest); margin-bottom: 32px; }
+.eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--protest); vertical-align: middle; margin-right: 12px; }
+h1.title { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 400; font-size: clamp(44px,6.5vw,84px); line-height: 0.98; letter-spacing: -0.03em; margin-bottom: 32px; }
+h1.title em { font-style: italic; font-variation-settings: "SOFT" 100, "opsz" 144; color: var(--protest); font-weight: 300; }
+.lede { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 24; font-weight: 400; font-size: clamp(20px,2vw,24px); line-height: 1.45; color: var(--ink-mute); max-width: 680px; }
+.byline { display: flex; gap: 40px; padding: 40px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-top: 56px; font-size: 14px; }
+.byline .col { flex: 1; }
+.byline .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
+.numbers { background: var(--paper); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.stat .n { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 20, "opsz" 144; font-weight: 400; font-size: clamp(36px,4vw,64px); line-height: 1; letter-spacing: -0.03em; margin-bottom: 12px; white-space: nowrap; }
+.stat .l { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); line-height: 1.5; }
+.section-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 20px; }
+h2 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 30, "opsz" 96; font-weight: 400; font-size: clamp(36px,4.5vw,56px); line-height: 1.05; letter-spacing: -0.025em; max-width: 800px; margin-bottom: 32px; }
+h2 em { font-style: italic; font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 300; }
+p { margin-bottom: 20px; max-width: 680px; }
+p.wide { max-width: 800px; }
+.split { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 48px; margin-top: 56px; padding: 48px; background: var(--paper); border: 1px solid var(--rule); border-radius: 2px; box-shadow: var(--shadow); }
+.split .divider { background: var(--rule); }
+.split .side { padding: 0 8px; }
+.split .side.protest { --c: var(--protest); --tint: var(--protest-tint); }
+.split .side.speech { --c: var(--speech); --tint: var(--speech-tint); }
+.split .side.extremist { --c: var(--extremist); --tint: var(--extremist-tint); }
+.split .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.split .label::before { content: ''; width: 10px; height: 10px; background: var(--c); display: inline-block; }
+.split .name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 50, "opsz" 36; font-weight: 500; font-size: 26px; line-height: 1.15; margin-bottom: 20px; }
+.split .desc { font-size: 15px; color: var(--ink-mute); line-height: 1.55; margin-bottom: 24px; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.chip { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 5px 10px; background: var(--tint); color: var(--c); letter-spacing: 0.02em; border-radius: 2px; }
+.split .stat-inline { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-mute); line-height: 1.8; border-top: 1px solid var(--rule); padding-top: 16px; }
+.split .stat-inline strong { color: var(--c); font-weight: 500; }
+.pullquote { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 72; font-style: italic; font-weight: 300; font-size: clamp(26px,3.2vw,40px); line-height: 1.25; margin: 64px auto; max-width: 780px; padding-left: 32px; border-left: 2px solid var(--protest); }
+.chart-full { background: var(--paper); border: 1px solid var(--rule); border-radius: 2px; padding: 32px; margin: 48px 0; box-shadow: var(--shadow); }
+.chart-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 16px; }
+.tooltip { position: absolute; background: var(--ink); color: var(--paper); border-radius: 4px; padding: 8px 12px; font-size: 13px; pointer-events: none; opacity: 0; transition: opacity 0.15s; z-index: 100; font-family: 'JetBrains Mono', monospace; }
+.tooltip.show { opacity: 0.95; }
+details.method { margin: 48px 0; padding: 24px 28px; background: var(--paper); border: 1px solid var(--rule); border-radius: 2px; max-width: 800px; }
+details.method summary { cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+details.method summary::-webkit-details-marker { display: none; }
+details.method summary::after { content: '+'; font-size: 20px; color: var(--ink-mute); font-family: 'Fraunces', serif; }
+details.method[open] summary::after { content: '\2212'; }
+details.method .content { margin-top: 24px; font-size: 14px; color: var(--ink-mute); }
+details.method p { max-width: none; font-size: 14px; }
+footer { background: var(--ink); color: var(--bg); padding: 72px 0 40px; margin-top: 88px; }
+footer .wrap { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+footer h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 16px; font-weight: 500; }
+footer p, footer a { font-size: 14px; color: var(--bg-2); line-height: 1.7; max-width: none; text-decoration: none; }
+footer a:hover { color: var(--paper); border-bottom: 1px solid var(--protest-tint); }
+footer .credit { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 40, "opsz" 20; font-size: 18px; color: var(--paper); margin-bottom: 8px; }
+footer .fine { grid-column: 1 / -1; padding-top: 32px; margin-top: 32px; border-top: 1px solid #333330; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink-faint); }
+@media (max-width: 900px) { .numbers-grid { grid-template-columns: 1fr 1fr; } .split { grid-template-columns: 1fr; padding: 32px; } .split .divider { display: none; } footer .wrap { grid-template-columns: 1fr; } .byline { flex-direction: column; gap: 20px; } }
+</style>
+</head>
+<body>
+<header class="masthead"><div class="wrap"><div class="brand">Eric <span>Brattin</span></div><div class="meta">Report &middot; Aug 2026 &middot; 3,829 records (Viasna)</div></div></header>
+
+<section class="section wrap">
+  <div class="title-block">
+    <div class="eyebrow">A report from the record &middot; Belarusian political prisoners</div>
+    <h1 class="title">The grinder does not <em>distinguish.</em></h1>
+    <p class="lede">Cuba sorts its prisoners into two categories that never overlap. Russia ratchets through discrete steps, adding new tools without discarding old ones. Belarus does something different: it collapses. The charging structure that existed in the first months after the August 2020 election protests has been grinding itself flat ever since. The communities that Louvain detects in the 2020 data dissolve by 2024. The modularity drops from 0.26 to 0.07. The state is not building a differentiated repressive architecture. It is running every case through the same small set of articles, applied without the structural variation that would indicate prosecutorial discretion. That absence of discretion is not a footnote. Under the jurisprudence of the UN Working Group on Arbitrary Detention, a charging pattern that applies the same articles uniformly to all forms of dissent, without individualized assessment of the conduct alleged, meets the definition of arbitrary detention under Category III. The homogenization is the violation.</p>
+    <p class="lede" style="margin-top: 16px;">We read 3,829 prosecution records from Viasna's political prisoner database, covering every documented case with charge information since 2020. The core article, Art. 342 ("grossly violating public order"), does not define the conduct it criminalizes. The UN Human Rights Committee has found Belarus in violation of ICCPR Article 21 in multiple individual communications. What this analysis adds is the systemic dimension: 1,648 people charged under the same undefined article, 80% as a standalone single charge, with no measurable variation in how the article is applied across protest, speech, association, or any other form of dissent. That uniformity is not prosecutorial efficiency. It is the structural signature of a system that has replaced individualized assessment with a template. The data is the proof.</p>
+  </div>
+  <div class="byline">
+    <div class="col"><div class="label">Analysis</div><div class="value">E. Brattin</div></div>
+    <div class="col"><div class="label">Source data</div><div class="value">Viasna Human Rights Centre (Belarus)</div></div>
+    <div class="col"><div class="label">Method</div><div class="value">Formal ontology + permutation testing + Louvain community detection</div></div>
+    <div class="col"><div class="label">Period</div><div class="value">2020 to 2026</div></div>
+  </div>
+</section>
+
+<div class="numbers"><div class="wrap"><div class="numbers-grid">
+  <div class="stat"><div class="n">3,829</div><div class="l">Political prisoner<br>prosecutions</div></div>
+  <div class="stat"><div class="n">72</div><div class="l">Criminal Code<br>articles used</div></div>
+  <div class="stat"><div class="n">80%</div><div class="l">Art. 342 used<br>standalone</div></div>
+  <div class="stat"><div class="n">0.07</div><div class="l">Modularity by 2024<br>(from 0.26 in 2020)</div></div>
+</div></div></div>
+
+<section class="section wrap">
+  <div class="section-tag">The finding</div>
+  <h2>Three regimes in 2020. One <em>undifferentiated</em> mass by 2024.</h2>
+  <p class="wide">Louvain community detection finds four communities in the full dataset, but the temporal analysis reveals these are a snapshot of a process of collapse. In 2020, the charging structure had nine detectable communities and a modularity of 0.26. By 2024, modularity had fallen to 0.07. The communities are dissolving into each other. This is not a ratchet (Russia) or a stable partition (Cuba). This is homogenization.</p>
+  <p class="wide">The legal significance is specific. ICCPR Article 9(1) prohibits arbitrary detention. The WGAD's Category III covers deprivation of liberty where "the total or partial non-observance of the international norms relating to the right to a fair trial" is of such gravity as to give the detention an arbitrary character. A system that charges 80% of political defendants under a single undefined article, without individualized assessment, without variation by conduct, and with a conviction rate that leaves no room for judicial independence, satisfies that standard on its face. The HRC's General Comment 34 (para. 38) separately establishes that laws criminalizing insult to the head of state are incompatible with Article 19. Belarus has three such articles (367, 368, 369), applied to 1,527 people in this dataset.</p>
+
+  <div class="split">
+    <div class="side protest">
+      <div class="label">Cluster 1 &middot; Mass protest</div>
+      <div class="name">The production line</div>
+      <p class="desc">Art. 342 (grossly violating public order) is the engine of Belarusian repression. Applied to 1,648 people, standalone in 79.9% of cases. This is the highest standalone rate of any primary charge across all three countries (Cuba, Russia, Belarus). It is a single-article conviction factory.</p>
+      <div class="chip-row"><span class="chip">342</span><span class="chip">364</span><span class="chip">363</span><span class="chip">341</span></div>
+      <div class="stat-inline">Art. 342 standalone in <strong>1,317/1,648</strong> cases (<strong>79.9%</strong>). The article does not define "grossly violate." That is the point.</div>
+    </div>
+    <div class="divider"></div>
+    <div class="side speech">
+      <div class="label">Cluster 2 &middot; Presidential insult</div>
+      <div class="name">The Lukashenko-specific cluster</div>
+      <p class="desc">Arts. 368 (insult president), 369 (insult official), and 367 (slander president) form a tight cluster. Unlike Art. 342, these charges stack heavily: 368 is standalone only 34.5% of the time. The typical file charges insult-to-president plus insult-to-official plus incitement, compounding the sentence.</p>
+      <div class="chip-row"><span class="chip">368</span><span class="chip">369</span><span class="chip">130</span><span class="chip">367</span><span class="chip">370</span></div>
+      <div class="stat-inline"><strong>368 + 369</strong> co-occur <strong>270 times</strong>. This is the only significant stacking pattern in the dataset. Belarus stacks insults, not protests.</div>
+    </div>
+  </div>
+
+  <div class="split" style="margin-top: 32px; grid-template-columns: 1fr;">
+    <div class="side extremist" style="padding: 0 8px;">
+      <div class="label">Cluster 3 &middot; Extremist formations</div>
+      <div class="name">The organizational weapon, imported from Russia</div>
+      <p class="desc">Arts. 361-1 (extremist formation), 361-4 (promoting extremism), and 361-2 (financing extremism) are structurally identical to Russia's 282.1/282.3/284.1 cluster. They target members of organizations designated "extremist" by executive decision. In Belarus, these designations cover independent media (Tut.by), human rights groups (Viasna itself), opposition movements, and Telegram channels. By 2025, Art. 361-4 overtook Art. 342 as the most-charged article, signaling a shift from protest suppression to organizational persecution.</p>
+      <div class="chip-row"><span class="chip">361-4</span><span class="chip">361-1</span><span class="chip">361</span><span class="chip">361-2</span><span class="chip">369-1</span></div>
+      <div class="stat-inline"><strong>755</strong> persecutions. In 2025, Art. 361-4 accounted for <strong>107 of 200</strong> cases (53.5%), displacing Art. 342 as the primary instrument.</div>
+    </div>
+  </div>
+</section>
+
+<div class="narrow">
+  <blockquote class="pullquote">Cuba has two menus. Russia has a ratchet. Belarus has a grinder. The modularity fell from 0.26 to 0.07 in four years. The state stopped sorting its prisoners because it stopped needing to tell them apart.</blockquote>
+</div>
+
+<section class="section wrap">
+  <div class="section-tag">The collapse</div>
+  <h2>Every year since 2020 is a <em>structural break.</em></h2>
+  <p class="wide">In Russia, only two of six candidate break years were significant. In Belarus, every single year passes the permutation test (all p=0.005). The charging architecture is not settling into a stable configuration. It is continuously simplifying. This is the signature of a system that has not found its equilibrium because it is still tightening.</p>
+  <div class="chart-full">
+    <div class="chart-label">Prosecution volume (bars) and single-charge rate (line) &middot; 2020 to 2025</div>
+    <div id="volume"></div>
+  </div>
+  <p class="wide">The volume peaked in 2022 (893 prosecutions) but the structural simplification continued: single-charge prosecutions rose from 66% (2020) to 75% (2022-2025), and the number of detectable communities fell from 9 to 4. The system is converging on a minimal-article, maximal-throughput model. Under international law, this convergence has a name: it is a pattern of practice. The International Law Commission's Articles on State Responsibility (Art. 15) define a composite internationally wrongful act as one "occurring through a series of actions or omissions defined in aggregate as wrongful." The monotonically declining modularity is the aggregate.</p>
+</section>
+
+<section class="section wrap">
+  <div class="section-tag">The shift</div>
+  <h2>In 2025, the primary weapon <em>changed.</em></h2>
+  <p class="wide">For four years (2020-2024), Art. 342 (public disorder) was the most-charged article every single year. In 2025, Art. 361-4 (promoting extremism) overtook it for the first time: 107 cases versus 42. This is not a minor fluctuation. It is a structural pivot from protest suppression to organizational persecution. Belarus is following Russia's trajectory with a two-year lag: Russia's organizational regime (Art. 282.2) was already the largest cluster before the invasion; Belarus is arriving there now.</p>
+  <p class="wide">The other signal in the 2024-2025 data: the proportion of women prosecuted peaked at 33.7% in 2024, the highest of any year and any country in the comparative dataset. This is consistent with the shift to organizational charges, which target association (subscribing, donating, sharing) rather than physical presence at protests.</p>
+</section>
+
+<div class="narrow">
+  <blockquote class="pullquote">The Belarusian state designated the human rights organization that collected this data as extremist. Viasna's own employees have been prosecuted under Art. 361-1 for the act of documenting political persecution. The dataset is documenting the system that is trying to destroy the dataset.</blockquote>
+</div>
+
+<section class="section wrap">
+  <div class="section-tag">What follows</div>
+  <h2>If the argument holds, three things become <em>possible.</em></h2>
+  <div class="split" style="margin-top: 48px; grid-template-columns: 1fr;">
+    <div class="side protest" style="padding: 0 8px;">
+      <div class="label">Consequence 1 &middot; For the OHCHR mandate on Belarus</div>
+      <div class="name">The homogenization pattern is itself evidence of systematic arbitrary detention.</div>
+      <p class="desc">The collapsing modularity shows that the state is not exercising prosecutorial discretion. It is applying a small menu of charges uniformly across all forms of dissent. The OHCHR mandate on Belarus (resolution 49/26, renewed 2024) can cite the structural finding as evidence that the repression is systematic rather than case-by-case. Under the WGAD's revised methods of work, a "pattern of practice" finding triggers the enhanced follow-up procedure and can be referred to the Human Rights Council as a situation of widespread arbitrary detention.</p>
+    </div>
+  </div>
+  <div class="split" style="margin-top: 32px; grid-template-columns: 1fr;">
+    <div class="side speech" style="padding: 0 8px;">
+      <div class="label">Consequence 2 &middot; For ICCPR reporting</div>
+      <div class="name">Each cluster maps to specific ICCPR violations.</div>
+      <p class="desc">Cluster 1 (protest) violates Article 21 (assembly). Cluster 2 (insult) violates Article 19 (expression), with the HRC's General Comment 34 explicitly rejecting criminal insult-to-head-of-state laws. Cluster 3 (extremist formations) violates Article 22 (association). The SKOS vocabulary maps each Criminal Code article to the ICCPR provisions it violates, making every record ICCPR-queryable.</p>
+    </div>
+  </div>
+  <div class="split" style="margin-top: 32px; grid-template-columns: 1fr;">
+    <div class="side extremist" style="padding: 0 8px;">
+      <div class="label">Consequence 3 &middot; For the comparative framework</div>
+      <div class="name">Three countries, three patterns, one method.</div>
+      <p class="desc">Cuba (two static regimes), Russia (discrete ratchet), Belarus (continuous grinder). Each is structurally distinct, found by the same unsupervised algorithm on the same type of data. The cross-system finding is stronger than any single-country analysis: the methodology is not aimed at one state. It reads the pattern the charging data contains, whatever that pattern turns out to be.</p>
+    </div>
+  </div>
+
+  <details class="method">
+    <summary>Method note &middot; What we actually did</summary>
+    <div class="content">
+      <p>We took the public database of 3,829 political prisoner prosecutions published by Viasna Human Rights Centre and encoded every record in a formal ontology with a SKOS charge vocabulary mapping 72 Belarusian Criminal Code articles to ICCPR provisions. Louvain community detection was applied at the default resolution parameter (1.0). Structural break detection uses a permutation test with year-label shuffling. The pipeline is fully reproducible: six scripts from CSV to this report. The complete codebase is open on <a href="https://github.com/TruthQuest/belarus-charge-graph" target="_blank" rel="noopener" style="color: var(--extremist);">GitHub</a>.</p>
+      <p>This analysis is the third in a comparative series. The Cuba analysis (Prisoners Defenders, 1,172 prisoners) is <a href="https://www.traceoriginresearch.com/what-a-knowledge-graph-found-in-1-172-cuban-charge-sheets-that-no-case-file-could-show-alone/" style="color: var(--extremist);">published here</a>. The Russia analysis (OVD-Info, 7,111 prosecutions) is <a href="https://www.traceoriginresearch.com/what-a-knowledge-graph-found-in-7-111-russian-prosecution-records-that-no-single-case-file-could-show/" style="color: var(--extremist);">published here</a>.</p>
+    </div>
+  </details>
+</section>
+
+<section class="section wrap" style="padding-top: 32px;">
+  <div class="narrow">
+    <p style="font-family: 'Fraunces', serif; font-variation-settings: 'SOFT' 40, 'opsz' 24; font-size: 20px; line-height: 1.55; max-width: none;">Viasna documented 3,829 prosecutions. The Belarusian state designated Viasna as extremist. Viasna's founder, Ales Bialiatski, received the Nobel Peace Prize in prison and was charged under Art. 342. The dataset contains the charge sheet of the organization that built the dataset. That recursion is the point. The grinder does not distinguish between the person it prosecutes and the person who writes it down. It does not distinguish because the charging data shows it has stopped distinguishing between anything. That is not a feature of prosecutorial discretion. It is the absence of it. Under international human rights law, that absence has a name: arbitrary detention, practiced systematically, documented in 3,829 charge sheets the state never expected anyone to read together. The ontology does not open the cell. It writes down what the state has done, in a form the state cannot revise, in a language other institutions can read. That is not a remedy. It is a precondition for one.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div><div class="credit">Trace Origin LLC</div><p>Structural intelligence for investigations. Three-country comparative framework: Cuba, Russia, Belarus.</p></div>
+  <div><h4>Source</h4><p><a href="https://prisoners.spring96.org/" target="_blank" rel="noopener">Viasna Human Rights Centre</a><br>Public registry of political prisoners in Belarus</p></div>
+  <div><h4>Contact</h4><p><a href="mailto:ebrattin@traceoriginresearch.com">ebrattin@traceoriginresearch.com</a><br><a href="https://www.linkedin.com/in/ericbrattin">LinkedIn</a><br><a href="https://github.com/TruthQuest/belarus-charge-graph">GitHub</a></p></div>
+  <div class="fine">&copy; 2026 Trace Origin LLC &middot; All rights reserved &middot; Non-commercial academic citation and journalistic quotation permitted under standard fair use.</div>
+</div></footer>
+
+<div class="tooltip" id="tip"></div>
+<script>
+const DATA = {"yearly": [{"year": 2020, "n": 319, "mean_stack": 1.608, "single_pct": 66.1, "comms": 9, "Q": 0.256, "top5": "342(105),293(103),364(65),339(42),363(20)", "female_pct": 14.4}, {"year": 2021, "n": 948, "mean_stack": 1.464, "single_pct": 68.0, "comms": 13, "Q": 0.169, "top5": "342(375),369(225),130(166),368(141),364(77)", "female_pct": 12.8}, {"year": 2022, "n": 893, "mean_stack": 1.428, "single_pct": 75.3, "comms": 9, "Q": 0.084, "top5": "342(447),368(210),369(166),130(90),361-4(52)", "female_pct": 22.1}, {"year": 2023, "n": 487, "mean_stack": 1.466, "single_pct": 71.9, "comms": 6, "Q": 0.089, "top5": "342(210),368(142),369(82),130(60),367(44)", "female_pct": 25.1}, {"year": 2024, "n": 332, "mean_stack": 1.485, "single_pct": 73.2, "comms": 4, "Q": 0.072, "top5": "342(152),130(61),368(56),361-1(50),361-4(42)", "female_pct": 33.7}, {"year": 2025, "n": 200, "mean_stack": 1.41, "single_pct": 73.0, "comms": 4, "Q": 0.103, "top5": "361-4(107),342(42),368(35),130(31),361(22)", "female_pct": 16.5}], "breaks": [{"year": 2021, "mod_diff": 0.1629, "mod_p": 0.005}, {"year": 2022, "mod_diff": 0.151, "mod_p": 0.005}, {"year": 2023, "mod_diff": 0.1195, "mod_p": 0.005}]};
+const tip = d3.select('#tip');
+function showTip(evt,html){tip.html(html).classed('show',true).style('left',(evt.pageX+14)+'px').style('top',(evt.pageY-10)+'px');}
+function hideTip(){tip.classed('show',false);}
+
+(function(){
+  const el=document.getElementById('volume');
+  const data=DATA.yearly;
+  const W=el.clientWidth||800,H=360;
+  const margin={top:20,right:60,bottom:55,left:60};
+  const w=W-margin.left-margin.right,h=H-margin.top-margin.bottom;
+  const svg=d3.select(el).append('svg').attr('width',W).attr('height',H);
+  const g=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+  const x=d3.scaleBand().domain(data.map(d=>d.year)).range([0,w]).padding(0.25);
+  const yL=d3.scaleLinear().domain([0,d3.max(data,d=>d.n)*1.15]).range([h,0]);
+  const yR=d3.scaleLinear().domain([55,85]).range([h,0]);
+  g.append('g').attr('transform',`translate(0,${h})`).call(d3.axisBottom(x)).selectAll('text').attr('fill','#4A4E48').attr('font-size','12px');
+  g.append('g').call(d3.axisLeft(yL).ticks(5)).selectAll('text').attr('fill','#7C1D1D').attr('font-size','11px');
+  g.append('g').attr('transform',`translate(${w},0)`).call(d3.axisRight(yR).ticks(4).tickFormat(d=>d+'%')).selectAll('text').attr('fill','#1A4A3A').attr('font-size','11px');
+  g.selectAll('.domain,.tick line').attr('stroke','#B0B4AA');
+  g.selectAll('.bar').data(data).join('rect')
+    .attr('x',d=>x(d.year)).attr('y',d=>yL(d.n)).attr('width',x.bandwidth()).attr('height',d=>h-yL(d.n))
+    .attr('fill','#7C1D1D').attr('rx',2).attr('opacity',0.8)
+    .on('mouseover',(evt,d)=>showTip(evt,`<strong>${d.year}</strong><br>Prosecutions: ${d.n}<br>Single-charge: ${d.single_pct}%<br>Mean stack: ${d.mean_stack}<br>Communities: ${d.comms}<br>Q: ${d.Q}<br>% female: ${d.female_pct}%<br>Top: ${d.top5}`))
+    .on('mouseout',hideTip);
+  g.selectAll('.bar-label').data(data).join('text')
+    .attr('x',d=>x(d.year)+x.bandwidth()/2).attr('y',d=>yL(d.n)-5)
+    .attr('text-anchor','middle').attr('font-size','11px').attr('fill','#4A4E48')
+    .attr('font-family','JetBrains Mono, monospace').text(d=>d.n);
+  const line=d3.line().x(d=>x(d.year)+x.bandwidth()/2).y(d=>yR(d.single_pct)).curve(d3.curveMonotoneX);
+  g.append('path').datum(data).attr('d',line).attr('fill','none').attr('stroke','#1A4A3A').attr('stroke-width',3);
+  g.selectAll('.dot').data(data).join('circle').attr('cx',d=>x(d.year)+x.bandwidth()/2).attr('cy',d=>yR(d.single_pct)).attr('r',5).attr('fill','#1A4A3A').attr('stroke','#fff').attr('stroke-width',2);
+  g.append('text').attr('x',6).attr('y',-6).text('Prosecutions').attr('fill','#7C1D1D').attr('font-size','11px').attr('font-family','JetBrains Mono, monospace');
+  g.append('text').attr('x',w-6).attr('y',-6).attr('text-anchor','end').text('Single-charge %').attr('fill','#1A4A3A').attr('font-size','11px').attr('font-family','JetBrains Mono, monospace');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+Step 04: Belarus charge analysis
+Loaded 8465 records (224 skipped: no articles)
+Graph: 63 nodes, 490 edges (pruned 230 < 2)
+Louvain: 4 communities, Q=0.1624
+  C0: 12 arts, 4411 pers. Top: 368(1312), 369(1236), 130(925)
+  C1: 21 arts, 4930 pers. Top: 342(3788), 364(269), 293(269)
+  C2: 14 arts, 2333 pers. Top: 361-4(1049), 361-1(425), 361(314)
+  C3: 16 arts, 525 pers. Top: 356(147), 295(92), 289(85)
+H1: Regime shift at Aug 2020 (5000 perms)
+H1: mod_diff=0.1783, p=0.3565
+H2: Art. 342 isolation
+H2 342: standalone=3249/3788 (85.8%), comm=1
+H2 368: standalone=507/1312 (38.6%), comm=0
+H2 369: standalone=590/1236 (47.7%), comm=0
+H5: Charge stacking intensity
+H5: pre=1.89, post=1.62, p=0.0036
+Step 04: Belarus charge analysis
+Loaded 8465 records (224 skipped: no articles)
+Graph: 63 nodes, 490 edges (pruned 230 < 2)
+Louvain: 4 communities, Q=0.1624
+  C0: 12 arts, 4411 pers. Top: 368(1312), 369(1236), 130(925)
+  C1: 16 arts, 525 pers. Top: 356(147), 295(92), 289(85)
+  C2: 21 arts, 4930 pers. Top: 342(3788), 364(269), 293(269)
+  C3: 14 arts, 2333 pers. Top: 361-4(1049), 361-1(425), 361(314)
+H1: Regime shift at Aug 2020 (5000 perms)
+H1: mod_diff=0.1775, p=0.3583
+H2: Art. 342 isolation
+H2 342: standalone=3249/3788 (85.8%), comm=2
+H2 368: standalone=507/1312 (38.6%), comm=0
+H2 369: standalone=590/1236 (47.7%), comm=0
+H5: Charge stacking intensity
+H5: pre=1.89, post=1.62, p=0.0036

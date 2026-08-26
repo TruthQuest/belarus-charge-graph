@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-08-26T14:53:50.476748+00:00",
+  "total_records": 8465,
+  "yearly_summary": [
+    {
+      "year": 2020,
+      "n_persecutions": 376,
+      "n_articles_used": 57,
+      "n_new_articles": 57,
+      "new_articles": "13,130,139,14,147,178,185,191,198,203-1,209,214,218,235,243,285,289,290,292,293,295,295-3,309,328,329,333-1,339,341,342,346,349,350,352,354,356,357,361,361-1,361-4,362,363,364,365,366,367,368,369,370,375,377,389,391,400,411,426,430,435",
+      "mean_articles_per_case": 1.859,
+      "single_charge_pct": 58.5,
+      "n_communities": 5,
+      "modularity": 0.2617,
+      "graph_nodes": 57,
+      "graph_edges": 253,
+      "top5_articles": "293(119),342(119),364(73),339(57),411(32)",
+      "pct_female": 12.8
+    },
+    {
+      "year": 2021,
+      "n_persecutions": 1083,
+      "n_articles_used": 61,
+      "n_new_articles": 20,
+      "new_articles": "130-1,174,179,216,228,290-2,290-4,290-5,333,342-2,359,361-2,369-1,371,402,406,407,409,424,431",
+      "mean_articles_per_case": 1.603,
+      "single_charge_pct": 63.3,
+      "n_communities": 9,
+      "modularity": 0.221,
+      "graph_nodes": 61,
+      "graph_edges": 285,
+      "top5_articles": "342(408),369(239),130(203),368(161),293(86)",
+      "pct_female": 13.0
+    },
+    {
+      "year": 2022,
+      "n_persecutions": 1033,
+      "n_articles_used": 46,
+      "n_new_articles": 2,
+      "new_articles": "290-1,378",
+      "mean_articles_per_case": 1.585,
+      "single_charge_pct": 70.5,
+      "n_communities": 7,
+      "modularity": 0.1744,
+      "graph_nodes": 46,
+      "graph_edges": 246,
+      "top5_articles": "342(497),368(238),369(200),130(138),361-4(64)",
+      "pct_female": 21.6
+    },
+    {
+      "year": 2023,
+      "n_persecutions": 651,
+      "n_articles_used": 43,
+      "n_new_articles": 2,
+      "new_articles": "133,343",
+      "mean_articles_per_case": 1.69,
+      "single_charge_pct": 66.2,
+      "n_communities": 4,
+      "modularity": 0.1562,
+      "graph_nodes": 43,
+      "graph_edges": 228,
+      "top5_articles": "342(262),368(181),369(110),130(99),367(61)",
+      "pct_female": 24.3
+    },
+    {
+      "year": 2024,
+      "n_persecutions": 507,
+      "n_articles_used": 38,
+      "n_new_articles": 0,
+      "new_articles": "",
+      "mean_articles_per_case": 1.604,
+      "single_charge_pct": 66.5,
+      "n_communities": 7,
+      "modularity": 0.1801,
+      "graph_nodes": 38,
+      "graph_edges": 123,
+      "top5_articles": "342(184),130(95),361-1(85),368(84),361-4(65)",
+      "pct_female": 30.2
+    },
+    {
+      "year": 2025,
+      "n_persecutions": 379,
+      "n_articles_used": 23,
+      "n_new_articles": 1,
+      "new_articles": "210",
+      "mean_articles_per_case": 1.504,
+      "single_charge_pct": 71.2,
+      "n_communities": 5,
+      "modularity": 0.1079,
+      "graph_nodes": 23,
+      "graph_edges": 77,
+      "top5_articles": "361-4(225),368(62),130(60),342(58),361(45)",
+      "pct_female": 17.2
+    },
+    {
+      "year": 2026,
+      "n_persecutions": 21,
+      "n_articles_used": 7,
+      "n_new_articles": 0,
+      "new_articles": "",
+      "mean_articles_per_case": 1.238,
+      "single_charge_pct": 81.0,
+      "n_communities": 4,
+      "modularity": 0.2083,
+      "graph_nodes": 7,
+      "graph_edges": 5,
+      "top5_articles": "361-4(13),368(4),130(3),342(2),361-1(2)",
+      "pct_female": 14.3
+    }
+  ],
+  "structural_breaks": [
+    {
+      "break_year": 2020,
+      "skipped": true
+    },
+    {
+      "break_year": 2021,
+      "n_pre": 376,
+      "n_post": 3674,
+      "modularity_pre": 0.2617,
+      "modularity_post": 0.1419,
+      "modularity_diff": 0.1198,
+      "modularity_p_value": 0.0425,
+      "n_communities_pre": 5,
+      "n_communities_post": 8
+    },
+    {
+      "break_year": 2022,
+      "n_pre": 1459,
+      "n_post": 2591,
+      "modularity_pre": 0.2495,
+      "modularity_post": 0.1353,
+      "modularity_diff": 0.1142,
+      "modularity_p_value": 0.0005,
+      "n_communities_pre": 10,
+      "n_communities_post": 6
+    },
+    {
+      "break_year": 2023,
+      "n_pre": 2492,
+      "n_post": 1558,
+      "modularity_pre": 0.2239,
+      "modularity_post": 0.1288,
+      "modularity_diff": 0.095,
+      "modularity_p_value": 0.0005,
+      "n_communities_pre": 8,
+      "n_communities_post": 4
+    }
+  ],
+  "most_significant_break": {
+    "break_year": 2022,
+    "n_pre": 1459,
+    "n_post": 2591,
+    "modularity_pre": 0.2495,
+    "modularity_post": 0.1353,
+    "modularity_diff": 0.1142,
+    "modularity_p_value": 0.0005,
+    "n_communities_pre": 10,
+    "n_communities_post": 6
+  }
+}

@@ -1,0 +1,32 @@
+Step 05: Belarus temporal dynamics
+Loaded 8465 records
+  2020: n=376, arts=57, mean_stack=1.86, single=58.5%, comms=5, Q=0.262
+  2021: n=1083, arts=61, mean_stack=1.60, single=63.3%, comms=9, Q=0.219
+  2022: n=1033, arts=46, mean_stack=1.58, single=70.5%, comms=7, Q=0.174
+  2023: n=651, arts=43, mean_stack=1.69, single=66.2%, comms=4, Q=0.156
+  2024: n=507, arts=38, mean_stack=1.60, single=66.5%, comms=7, Q=0.180
+  2025: n=379, arts=23, mean_stack=1.50, single=71.2%, comms=5, Q=0.108
+  2026: n=21, arts=7, mean_stack=1.24, single=81.0%, comms=4, Q=0.208
+  Testing break at 2020...
+  Testing break at 2021...
+    mod_diff=0.1199, p=0.0405
+  Testing break at 2022...
+    mod_diff=0.1145, p=0.0005
+  Testing break at 2023...
+    mod_diff=0.0924, p=0.0005
+Step 05: Belarus temporal dynamics
+Loaded 8465 records
+  2020: n=376, arts=57, mean_stack=1.86, single=58.5%, comms=5, Q=0.262
+  2021: n=1083, arts=61, mean_stack=1.60, single=63.3%, comms=9, Q=0.221
+  2022: n=1033, arts=46, mean_stack=1.58, single=70.5%, comms=7, Q=0.174
+  2023: n=651, arts=43, mean_stack=1.69, single=66.2%, comms=4, Q=0.156
+  2024: n=507, arts=38, mean_stack=1.60, single=66.5%, comms=7, Q=0.180
+  2025: n=379, arts=23, mean_stack=1.50, single=71.2%, comms=5, Q=0.108
+  2026: n=21, arts=7, mean_stack=1.24, single=81.0%, comms=4, Q=0.208
+  Testing break at 2020...
+  Testing break at 2021...
+    mod_diff=0.1198, p=0.0425
+  Testing break at 2022...
+    mod_diff=0.1142, p=0.0005
+  Testing break at 2023...
+    mod_diff=0.0950, p=0.0005

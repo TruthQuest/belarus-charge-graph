@@ -1,0 +1,480 @@
+{
+  "generated_at": "2026-08-26T14:52:50.846283+00:00",
+  "corpus": {
+    "total": 8465,
+    "total_persons": 8465,
+    "total_articles": 85
+  },
+  "graph": {
+    "nodes": 63,
+    "edges": 490,
+    "density": 0.250896
+  },
+  "primary_louvain": {
+    "resolution": 1.0,
+    "n_communities": 4,
+    "modularity": 0.162411
+  },
+  "communities": {
+    "0": {
+      "n_articles": 12,
+      "total_persecutions": 4411,
+      "top_5": [
+        {
+          "article": "368",
+          "count": 1312
+        },
+        {
+          "article": "369",
+          "count": 1236
+        },
+        {
+          "article": "130",
+          "count": 925
+        },
+        {
+          "article": "367",
+          "count": 365
+        },
+        {
+          "article": "370",
+          "count": 245
+        }
+      ],
+      "all_members": [
+        "368",
+        "369",
+        "130",
+        "367",
+        "370",
+        "391",
+        "203-1",
+        "366",
+        "179",
+        "130-1",
+        "389",
+        "343"
+      ]
+    },
+    "1": {
+      "n_articles": 16,
+      "total_persecutions": 525,
+      "top_5": [
+        {
+          "article": "356",
+          "count": 147
+        },
+        {
+          "article": "295",
+          "count": 92
+        },
+        {
+          "article": "289",
+          "count": 85
+        },
+        {
+          "article": "309",
+          "count": 40
+        },
+        {
+          "article": "290-4",
+          "count": 29
+        }
+      ],
+      "all_members": [
+        "356",
+        "295",
+        "289",
+        "309",
+        "290-4",
+        "295-3",
+        "14",
+        "426",
+        "333-1",
+        "406",
+        "359",
+        "430",
+        "375",
+        "290",
+        "431",
+        "235"
+      ]
+    },
+    "2": {
+      "n_articles": 21,
+      "total_persecutions": 4930,
+      "top_5": [
+        {
+          "article": "342",
+          "count": 3788
+        },
+        {
+          "article": "364",
+          "count": 269
+        },
+        {
+          "article": "293",
+          "count": 269
+        },
+        {
+          "article": "339",
+          "count": 175
+        },
+        {
+          "article": "341",
+          "count": 116
+        }
+      ],
+      "all_members": [
+        "342",
+        "364",
+        "293",
+        "339",
+        "341",
+        "411",
+        "363",
+        "328",
+        "218",
+        "352",
+        "209",
+        "365",
+        "350",
+        "371",
+        "354",
+        "198",
+        "228",
+        "292",
+        "435",
+        "346",
+        "349"
+      ]
+    },
+    "3": {
+      "n_articles": 14,
+      "total_persecutions": 2333,
+      "top_5": [
+        {
+          "article": "361-4",
+          "count": 1049
+        },
+        {
+          "article": "361-1",
+          "count": 425
+        },
+        {
+          "article": "361",
+          "count": 314
+        },
+        {
+          "article": "361-2",
+          "count": 172
+        },
+        {
+          "article": "369-1",
+          "count": 102
+        }
+      ],
+      "all_members": [
+        "361-4",
+        "361-1",
+        "361",
+        "361-2",
+        "369-1",
+        "357",
+        "243",
+        "285",
+        "290-1",
+        "191",
+        "290-5",
+        "289-1",
+        "424",
+        "210"
+      ]
+    }
+  },
+  "H1_regime_shift": {
+    "n_pre": 55,
+    "n_post": 4013,
+    "modularity_pre": 0.362,
+    "modularity_post": 0.1845,
+    "modularity_diff": 0.1775,
+    "p_value": 0.3583,
+    "n_communities_pre": 9,
+    "n_communities_post": 7,
+    "mean_arts_pre": 1.891,
+    "mean_arts_post": 1.621,
+    "articles_only_post": [
+      "13",
+      "130-1",
+      "133",
+      "139",
+      "14",
+      "147",
+      "174",
+      "178",
+      "179",
+      "185",
+      "198",
+      "203-1",
+      "210",
+      "214",
+      "216",
+      "228",
+      "285",
+      "289",
+      "290",
+      "290-1",
+      "290-2",
+      "290-4",
+      "290-5",
+      "295-3",
+      "309",
+      "329",
+      "333",
+      "333-1",
+      "342-2",
+      "343",
+      "346",
+      "349",
+      "350",
+      "352",
+      "354",
+      "356",
+      "359",
+      "361",
+      "361-1",
+      "361-2",
+      "361-4",
+      "362",
+      "365",
+      "366",
+      "367",
+      "369-1",
+      "371",
+      "377",
+      "378",
+      "389",
+      "400",
+      "402",
+      "406",
+      "407",
+      "409",
+      "424"
+    ]
+  },
+  "H2_isolation": {
+    "342": {
+      "present": true,
+      "community": 2,
+      "total": 3788,
+      "standalone": 3249,
+      "standalone_pct": 85.8,
+      "top_cooccurrences": [
+        {
+          "article": "130",
+          "count": 150
+        },
+        {
+          "article": "368",
+          "count": 124
+        },
+        {
+          "article": "369",
+          "count": 86
+        },
+        {
+          "article": "364",
+          "count": 80
+        },
+        {
+          "article": "361-4",
+          "count": 72
+        }
+      ]
+    },
+    "342-2": {
+      "present": false
+    },
+    "367": {
+      "present": true,
+      "community": 0,
+      "total": 365,
+      "standalone": 94,
+      "standalone_pct": 25.8,
+      "top_cooccurrences": [
+        {
+          "article": "368",
+          "count": 200
+        },
+        {
+          "article": "130",
+          "count": 126
+        },
+        {
+          "article": "369",
+          "count": 91
+        },
+        {
+          "article": "342",
+          "count": 64
+        },
+        {
+          "article": "361",
+          "count": 59
+        }
+      ]
+    },
+    "368": {
+      "present": true,
+      "community": 0,
+      "total": 1312,
+      "standalone": 507,
+      "standalone_pct": 38.6,
+      "top_cooccurrences": [
+        {
+          "article": "369",
+          "count": 434
+        },
+        {
+          "article": "130",
+          "count": 314
+        },
+        {
+          "article": "367",
+          "count": 200
+        },
+        {
+          "article": "342",
+          "count": 124
+        },
+        {
+          "article": "361-4",
+          "count": 109
+        }
+      ]
+    },
+    "369": {
+      "present": true,
+      "community": 0,
+      "total": 1236,
+      "standalone": 590,
+      "standalone_pct": 47.7,
+      "top_cooccurrences": [
+        {
+          "article": "368",
+          "count": 434
+        },
+        {
+          "article": "130",
+          "count": 257
+        },
+        {
+          "article": "367",
+          "count": 91
+        },
+        {
+          "article": "342",
+          "count": 86
+        },
+        {
+          "article": "391",
+          "count": 79
+        }
+      ]
+    },
+    "369-1": {
+      "present": true,
+      "community": 3,
+      "total": 102,
+      "standalone": 14,
+      "standalone_pct": 13.7,
+      "top_cooccurrences": [
+        {
+          "article": "368",
+          "count": 53
+        },
+        {
+          "article": "361-1",
+          "count": 45
+        },
+        {
+          "article": "130",
+          "count": 42
+        },
+        {
+          "article": "367",
+          "count": 38
+        },
+        {
+          "article": "361",
+          "count": 36
+        }
+      ]
+    },
+    "370": {
+      "present": true,
+      "community": 0,
+      "total": 245,
+      "standalone": 155,
+      "standalone_pct": 63.3,
+      "top_cooccurrences": [
+        {
+          "article": "368",
+          "count": 59
+        },
+        {
+          "article": "369",
+          "count": 41
+        },
+        {
+          "article": "367",
+          "count": 31
+        },
+        {
+          "article": "130",
+          "count": 27
+        },
+        {
+          "article": "342",
+          "count": 19
+        }
+      ]
+    }
+  },
+  "H3_speech_cluster": {
+    "articles": [
+      "368",
+      "369",
+      "367",
+      "369-1",
+      "370"
+    ],
+    "communities": [
+      0,
+      3
+    ],
+    "single_community": false
+  },
+  "H4_extremist_cluster": {
+    "articles": [
+      "361-1",
+      "361-2",
+      "130",
+      "361-4",
+      "130-1"
+    ],
+    "communities": [
+      0,
+      3
+    ],
+    "single_community": false
+  },
+  "H5_stacking": {
+    "pre_mean": 1.891,
+    "post_mean": 1.621,
+    "pre_n": 55,
+    "post_n": 4013,
+    "mann_whitney_U": 131459.5,
+    "mann_whitney_p": 0.0035573537176693997
+  }
+}

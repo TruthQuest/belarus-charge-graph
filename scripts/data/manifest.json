@@ -1,0 +1,12 @@
+{
+  "source": "/Users/weisheit/pythonProject/belaurus-charge-graph/scripts/data/belarus_combined.csv",
+  "source_sha256": "8c41d6260021147c39e4c9a1048a1752dc91b73a0df95ef796076bd36aebb98e",
+  "source_type": "viasna_csv",
+  "row_count": 8689,
+  "ingested_at": "2026-08-26T14:52:01.537528+00:00",
+  "entity_counts": {
+    "articles": 85,
+    "persons": 8689,
+    "persecutions": 8689
+  }
+}
